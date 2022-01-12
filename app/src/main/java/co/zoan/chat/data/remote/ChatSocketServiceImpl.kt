@@ -15,21 +15,19 @@ import java.lang.Exception
 
 class ChatSocketServiceImpl(
     private val client: HttpClient
-) : ChatSocketService {
+): ChatSocketService {
 
     private var socket: WebSocketSession? = null
 
     override suspend fun initSession(username: String): Resource<Unit> {
         return try {
             socket = client.webSocketSession {
-                url(ChatSocketService.Endpoints.ChatSocket.url)
+                url("${ChatSocketService.Endpoints.ChatSocket.url}?username=$username")
             }
-            if (socket?.isActive == true) {
+            if(socket?.isActive == true) {
                 Resource.Success(Unit)
-            } else {
-                Resource.Error("Couldn't establish a connection.")
-            }
-        } catch (e: Exception) {
+            } else Resource.Error("Couldn't establish a connection.")
+        } catch(e: Exception) {
             e.printStackTrace()
             Resource.Error(e.localizedMessage ?: "Unknown error")
         }
@@ -52,10 +50,10 @@ class ChatSocketServiceImpl(
                     val json = (it as? Frame.Text)?.readText() ?: ""
                     val messageDto = Json.decodeFromString<MessageDto>(json)
                     messageDto.toMessage()
-                } ?: flow { }
-        } catch (e: Exception) {
+                } ?: flow {  }
+        } catch(e: Exception) {
             e.printStackTrace()
-            flow { }
+            flow {  }
         }
     }
 

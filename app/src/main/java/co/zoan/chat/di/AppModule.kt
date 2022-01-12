@@ -22,11 +22,11 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideHttpClient(): HttpClient{
-        return HttpClient(CIO){
+    fun provideHttpClient(): HttpClient {
+        return HttpClient(CIO) {
             install(Logging)
             install(WebSockets)
-            install(JsonFeature){
+            install(JsonFeature) {
                 serializer = KotlinxSerializer()
             }
         }
@@ -35,13 +35,12 @@ object AppModule {
     @Provides
     @Singleton
     fun provideMessageService(client: HttpClient): MessageService {
-        return MessageServiceImpl(client = client)
+        return MessageServiceImpl(client)
     }
 
     @Provides
     @Singleton
     fun provideChatSocketService(client: HttpClient): ChatSocketService {
-        return ChatSocketServiceImpl(client = client)
+        return ChatSocketServiceImpl(client)
     }
-
 }

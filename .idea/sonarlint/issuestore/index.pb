@@ -1,6 +1,4 @@
 
-_
-/app/src/main/java/co/zoan/chat/ui/theme/Type.kt,6\a\6a67ddb8b9d3786a3f78686bbdd7dd5b68a2967e
 `
 0app/src/main/java/co/zoan/chat/ui/theme/Color.kt,a\a\aa45579e568fcdd2e44d1c9e42cd486d9cc4c1d4
 `
@@ -30,9 +28,7 @@ X
 local.properties,0\7\0712df971a99ac4d2fccb8e0fb19f377f3374cca
 A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
-^
-.app/src/main/java/co/zoan/chat/MainActivity.kt,3\a\3a4f020bf014d843150a96abee60e693952acc1e
-l
-<app/src/main/java/co/zoan/chat/data/remote/dto/MessageDto.kt,2\e\2e23916d92828772e0466aca72e823d45b8bbb96
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35

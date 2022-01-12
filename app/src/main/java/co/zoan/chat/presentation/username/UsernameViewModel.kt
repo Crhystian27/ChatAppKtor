@@ -14,21 +14,20 @@ import javax.inject.Inject
 class UsernameViewModel @Inject constructor() : ViewModel() {
 
     private val _usernameText = mutableStateOf("")
-    val usernameText : State<String> = _usernameText
+    val usernameText: State<String> = _usernameText
 
     private val _onJoinChat = MutableSharedFlow<String>()
     val onJoinChat = _onJoinChat.asSharedFlow()
 
-    fun onUsernameChange(username: String){
+    fun onUsernameChange(username: String) {
         _usernameText.value = username
     }
 
-    fun onJoinClick(){
+    fun onJoinClick() {
         viewModelScope.launch {
-            if(usernameText.value.isNotBlank()){
+            if(usernameText.value.isNotBlank()) {
                 _onJoinChat.emit(usernameText.value)
             }
         }
     }
-
 }
